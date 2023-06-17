@@ -19,12 +19,13 @@ const TaskList: React.FC<Props> = ({tasks, setTasks, completedTasks, setComplete
         <Droppable droppableId="TasksList">
 
           {
-            (provided) => (
-              <div className="tasks" ref={provided.innerRef}{...provided.droppableProps}>
+            (provided, snapshot) => (
+              <div className={`tasks ${snapshot.isDraggingOver? `dragactive`: ''}`} ref={provided.innerRef} {...provided.droppableProps}>
                 <span className="tasks__heading">Active Tasks</span>
                 {
-                  tasks.map((task, index) => <TaskCard index={index} key={task.id} task={task} tasks={tasks} setTasks={setTasks} />)
+                  tasks?.map((task, index) => <TaskCard index={index} key={task.id} task={task} tasks={tasks} setTasks={setTasks} />)
                 }
+                {provided.placeholder}
               </div>
                 )
           }
@@ -34,12 +35,13 @@ const TaskList: React.FC<Props> = ({tasks, setTasks, completedTasks, setComplete
         <Droppable droppableId="TasksRemove">
 
         {
-            (provided) => (
-              <div className="tasks remove" ref={provided.innerRef}{...provided.droppableProps}>
+            (provided, snapshot) => (
+              <div className={`tasks ${snapshot.isDraggingOver? `dragcomplete`: 'remove'}`} ref={provided.innerRef}{...provided.droppableProps}>
                 <span className="tasks__heading">Completed Tasks</span>
                 {
-                  tasks.map((task) => <TaskCard key={task.id} task={task} tasks={completedTasks} setTasks={setCompletedTasks} />)
+                  completedTasks?.map((task, index) => <TaskCard index={index} key={task.id} task={task} tasks={completedTasks} setTasks={setCompletedTasks} />)
                 }
+                {provided.placeholder}
               </div>
             )
           }

@@ -36,6 +36,7 @@
     display: flex;
     justify-content: space-between;
     width: 30%;
+    z-index: 15;
     border-radius: 5px;
     padding: 10px 20px;
     margin-top: 15px;
@@ -79,6 +80,20 @@
 .task__heading{
     font-size: 2rem;
 }
+
+.dragactive{
+    background-color: rgb(237, 88, 138);
+}
+
+.dragcomplete{
+    background-color: rgb(49, 127, 0);
+}
+
+.drag {
+    box-shadow: 0 0 20px black;
+}
+
+
 
 @media (max-width: 768px) {
     .input{
