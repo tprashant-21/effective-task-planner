@@ -9,7 +9,7 @@ interface Props {
 
 const TaskInput = ({task, setTask, handleAdd}: Props) => {
 
-    const inputRef = useRef<HTMLInputElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   return (
     <form className='input' onSubmit={(e)=>{
