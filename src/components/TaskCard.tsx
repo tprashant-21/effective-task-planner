@@ -13,7 +13,7 @@ type Props = {
     setTasks: React.Dispatch<React.SetStateAction<Tracker[]>> ;
 }
 
-const TaskCard = ({index, task, tasks, setTasks}:Props) => {
+const TaskCard = ({index, task, tasks, setTasks} : Props) => {
 
     const [edit, setEdit] = useState<boolean>(false);
     const [editTask, setEditTask] = useState<string>(task.task);
