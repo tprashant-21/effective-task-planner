@@ -2,7 +2,7 @@
 
 .input{
     display: flex;
-    width: 95%;
+    width: 70%;
     position: relative;
     align-items: center;
 }
@@ -24,7 +24,7 @@
 }
 
 .tasks{
-    width: 47.5%;
+    width: 40.5%;
     display: flex;
     flex-direction: column;
     padding: 15px;
@@ -68,7 +68,7 @@
 
 .container{
     display: flex;
-    width: 95%;
+    width: 80%;
     flex-wrap: wrap;
     gap: 20px;
     margin-top: 25px;
@@ -80,7 +80,7 @@
     background-color: rgb(255, 255, 255,0.1);
 }
 
-.task__heading{
+.tasks__heading{
     font-size: 2rem;
 }
 
@@ -102,13 +102,26 @@
     .input{
         width: 95%;
     }
+
+    .input__box{
+        padding: 15px 15px;
+        font-size: 1.4rem;
+    }
+
     .tasks{
-        width: 95%;
+        width: 90%;
         margin-bottom: 10px;
     }
     .container{
         width: 95%;
         flex-direction: column;
+    }
+    .task__single--text{
+        font-size: 20px;
+    }
+
+    .tasks__heading{
+        font-size: 1.3rem;
     }
 }
 

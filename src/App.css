@@ -29,7 +29,7 @@ body{
 
 @media (max-width: 768px) {
     .heading{
-        font-size: 2rem;
+        font-size: 1.5rem;
         margin: 15px 0;
     }
 }

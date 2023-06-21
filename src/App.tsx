@@ -24,11 +24,11 @@ const App: React.FC = () => {
   };
 
   const onDragEnd = (result: DropResult) => {
+
     const {destination, source} = result;
 
-    if(!destination || destination.index === source.index && destination.droppableId === source.droppableId){
-      return;
-    }
+    if(!destination) return;
+    if(destination.index === source.index && destination.droppableId === source.droppableId) return;
 
     let add;
     let active = tasks;
@@ -36,45 +36,28 @@ const App: React.FC = () => {
     let important = importantTasks;
     let remember = rememberTasks;
 
-    if(source.droppableId === "TasksImmediate"){
+    
+    if(source.droppableId === "WaitList"){
       add = active[source.index];
       active.splice(source.index, 1);
-    } else {
+    } else if(source.droppableId === "TasksImmediate"){
       add = immediate[source.index];
       immediate.splice(source.index, 1);
-    }
-
-    if(destination.droppableId === "TasksImmediate"){
-      active.splice(destination.index, 0, add);
-    }else{
-      immediate.splice(destination.index, 0, add);
-    }
-
-    if(source.droppableId === "TasksImportant"){
-      add = active[source.index];
-      active.splice(source.index, 1);
-    } else {
-      add = important[source.index];
+    } else if(source.droppableId === "TasksImportant"){
+      add = important[source.index];  
       important.splice(source.index, 1);
-    }
-
-    if(destination.droppableId === "TasksImportant"){
-      active.splice(destination.index, 0, add);
-    }else{
-      important.splice(destination.index, 0, add);
-    }
-
-    if(source.droppableId === "TasksImportant"){
-      add = active[source.index];
-      active.splice(source.index, 1);
     } else {
-      add = remember[source.index];
+      add = remember[source.index]; 
       remember.splice(source.index, 1);
     }
 
-    if(destination.droppableId === "TasksImportant"){
+    if(destination.droppableId === "WaitList"){
       active.splice(destination.index, 0, add);
-    }else{
+    }else if(destination.droppableId === "TasksImmediate"){
+      immediate.splice(destination.index, 0, add);
+    }else if(destination.droppableId === "TasksImportant"){
+      important.splice(destination.index, 0, add);
+    }else{ 
       remember.splice(destination.index, 0, add);
     }
 
