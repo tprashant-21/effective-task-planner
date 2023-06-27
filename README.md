@@ -68,7 +68,7 @@ npm install
 3 Start the Dev server   
 
 ```sh
-npm start
+npm run dev
 ```
 
      
