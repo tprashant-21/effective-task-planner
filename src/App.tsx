@@ -71,6 +71,8 @@ const App: React.FC = () => {
   return (
     <DragDropContext onDragEnd={onDragEnd}>
 
+      <div className="tag"> Made with ❤️ by Prashant Timalsina </div>
+
       <div className='app'>
         <h1 className='heading'>EFFECTIVE TASK PLANNER</h1>
         <TaskInput task={task} setTask={setTask} handleAdd = {handleAdd} />
